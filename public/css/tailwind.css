@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+  }
+}
+
+@layer utilities {
+  .btn-select.selected {
+    @apply border-primary bg-[#FFF8F8];
+  }
+  .pagination-link.selected {
+    @apply bg-primary text-white;
+  }
+}

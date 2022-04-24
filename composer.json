@@ -1,0 +1,9 @@
+{
+    "name": "qthuy/mvc_website",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}
