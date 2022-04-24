@@ -5,10 +5,11 @@ require './src/Core/Database.php';
 require './src/Models/BaseModel.php';
 require __DIR__ . './vendor/autoload.php';
 
-require './src/Views/Client/partials/top.php';
-
 $controllerName = ucfirst(strtolower($_REQUEST['controller'] ?? 'Home')) . 'Controller';
 $actionName = $_REQUEST['action'] ?? 'index';
+
+require './src/Views/Client/partials/top.php';
+
 
 // echo $controllerName;
 // echo $actionName;

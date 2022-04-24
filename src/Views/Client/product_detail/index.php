@@ -31,7 +31,7 @@ if (empty($_GET['color'])) {
 
                             parse_str($query, $params);
 
-                            // Xoa param rom tren urls
+                            // Xoa param rom tren url
                             unset($params['rom']);
                             $string = http_build_query($params);
                             ?>
@@ -97,7 +97,7 @@ if (empty($_GET['color'])) {
             </div>
 
             <div class="flex flex-col pb-5">
-                <a class="bg-primary hover:opacity-90 py-4 rounded-xl text-white mt-10 font-medium text-lg text-center" href="index.php?controller=cart&action=addtocart&id_detail=<?php echo $product_detail['ma_chi_tiet_san_pham'] ?>">MUA NGAY</a>
+                <a class="bg-primary hover:opacity-90 py-4 rounded-xl text-white mt-10 font-medium text-lg text-center" href="index.php?controller=cart&action=addtocart&id_detail=<?php echo $product_detail['ma_chi_tiet_san_pham'] ?>&rom=<?php echo $_GET['rom'] ?>&color=<?php echo $_GET['color'] ?>">MUA NGAY</a>
                 <div class="flex mt-3 justify-between items-center">
                     <button class="bg-secondary hover:opacity-90 text-white rounded-xl">
                         <div class="flex flex-col px-7 py-2">

@@ -30,20 +30,22 @@ class CartController extends BaseController
 
         $result = $this->cartModel->getAll($id_detail);
 
-        // die(print_r($result));
-
         if (empty($_SESSION['cart'][$id_detail])) {
-            $_SESSION['cart'][$id_detail]['ten_san_pham'] = $result['ten_san_pham'];
-            $_SESSION['cart'][$id_detail]['anh_san_pham'] = $result['anh_san_pham'];
-            $_SESSION['cart'][$id_detail]['gia_tien'] = $result['gia_tien'];
+            $_SESSION['cart'][$id_detail]['ma_san_pham'] = $result[0]['ma_san_pham'];
+            $_SESSION['cart'][$id_detail]['ma_chi_tiet_san_pham'] = $result[0]['ma_chi_tiet_san_pham'];
+            $_SESSION['cart'][$id_detail]['ten_san_pham'] = $result[0]['ten_san_pham'];
+            $_SESSION['cart'][$id_detail]['anh_san_pham'] = $result[0]['anh_san_pham'];
+            $_SESSION['cart'][$id_detail]['gia_tien'] = $result[0]['gia_tien'];
+            $_SESSION['cart'][$id_detail]['mau_sac'] = $_GET['color'];
+            $_SESSION['cart'][$id_detail]['bo_nho_trong'] = $result[0]['bo_nho_trong'];
             $_SESSION['cart'][$id_detail]['so_luong'] = 1;
         } else {
             $_SESSION['cart'][$id_detail]['so_luong']++;
         }
 
-        $cart = $_SESSION['cart'];
+        // unset($_SESSION['cart']);
 
-        die(print_r($cart));
+        $cart = $_SESSION['cart'];
 
         return $this->view('Client.cart.index', [
             'cart' => $cart
@@ -55,7 +57,12 @@ class CartController extends BaseController
         $id_detail = $_REQUEST['id_detail'];
         unset($_SESSION['cart'][$id_detail]);
 
-        return $this->view('Client.cart.index');
+        $cart = $_SESSION['cart'];
+
+
+        return $this->view('Client.cart.index', [
+            'cart' => $cart,
+        ]);
     }
 
     public function updateQuantityInCart()
@@ -73,7 +80,10 @@ class CartController extends BaseController
             $_SESSION['cart'][$id_detail]['so_luong']++;
         }
 
+        $cart = $_SESSION['cart'];
 
-        return $this->view('Client.cart.index');
+        return $this->view('Client.cart.index', [
+            'cart' => $cart,
+        ]);
     }
 }

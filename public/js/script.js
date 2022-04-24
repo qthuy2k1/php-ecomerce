@@ -69,5 +69,19 @@ jQuery(function () {
         $('.pagination-link').removeClass('selected')
         $(this).addClass('selected')
     })
+
+
+    let prices = []
+    if($('#cartTable')) {
+        document.querySelectorAll('#cartTable tbody tr .total').forEach((element) => {
+            prices.push(parseInt(element.textContent.trim().replaceAll('.', '').replace('đ', '')))
+        })
+
+        let totalAllPrice = prices.reduce((accumulator, currentValue) =>
+            accumulator + currentValue
+        , 0)
+        
+        document.querySelector('#totalAllPrice').textContent = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(totalAllPrice)
+    }
 })
 
