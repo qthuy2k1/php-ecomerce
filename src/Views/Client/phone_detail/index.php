@@ -2,27 +2,27 @@
 
 // Neu chua co bien rom thi set la rom dau tien trong database
 if (empty($_GET['rom'])) {
-    $_GET['rom'] = $product[0]['bo_nho_trong'] ?? '';
+    $_GET['rom'] = $phone[0]['bo_nho_trong'] ?? '';
 }
 
 // Neu chua co bien color thi set la mau dau tien trong database
 if (empty($_GET['color'])) {
-    $_GET['color'] = explode(",", $product[0]['mau_sac'])[0] ?? '';
+    $_GET['color'] = explode(",", $phone[0]['mau_sac'])[0] ?? '';
 }
 ?>
 
 <div class="max-w-7xl mx-auto mt-8 grid grid-cols-3 gap-3">
     <div class="grid grid-cols-8 col-span-2 gap-x-0 bg-white px-4 rounded-[10px]">
         <div class="col-span-4">
-            <img src="./public/<?php echo $product[0]['anh_san_pham'] ?>" class="w-[380px] relative top-1/2 -translate-y-1/2">
+            <img src="./public/<?php echo $phone[0]['anh_san_pham'] ?>" class="w-[380px] relative top-1/2 -translate-y-1/2">
         </div>
         <div class="col-span-4 mt-6">
-            <h1 class="text-xl font-semibold"><?php echo $product[0]['ten_san_pham'] ?></h1>
+            <h1 class="text-xl font-semibold"><?php echo $phone[0]['ten_san_pham'] ?></h1>
             <div class="flex flex-col">
                 <div class="flex items-center mt-7">
                     <span class="text-sm mr-6 mt-3">Bộ Nhớ</span>
                     <ul class="flex items-center flex-wrap flex-1 list-none">
-                        <?php foreach ($product as $rom) : ?>
+                        <?php foreach ($phone as $rom) : ?>
                             <?php
                             $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
@@ -46,7 +46,7 @@ if (empty($_GET['color'])) {
                 <div class="flex items-center justify-start mt-2">
                     <span class="text-sm mr-4 mt-3">Màu sắc</span>
                     <ul class="flex flex-wrap flex-1 list-none">
-                        <?php foreach ($product as $product_detail) : ?>
+                        <?php foreach ($phone as $phone_detail) : ?>
                             <?php
                             // Xoa param color tren url
                             $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
@@ -59,9 +59,9 @@ if (empty($_GET['color'])) {
                             unset($params['color']);
                             $string = http_build_query($params);
                             ?>
-                            <?php if ($_GET['rom'] == $product_detail['bo_nho_trong']) : ?>
+                            <?php if ($_GET['rom'] == $phone_detail['bo_nho_trong']) : ?>
                                 <?php
-                                $colors = explode(", ", $product_detail['mau_sac']);
+                                $colors = explode(", ", $phone_detail['mau_sac']);
 
                                 ?>
                                 <?php foreach ($colors as $color) : ?>
@@ -84,9 +84,9 @@ if (empty($_GET['color'])) {
                 <div class="flex items-center mt-2">
                     <span class="text-2xl text-primary mr-4 font-bold">
                         <?php
-                        foreach ($product as $product_detail) {
-                            if ($_GET['rom'] == $product_detail['bo_nho_trong']) {
-                                echo number_format($product_detail['gia_tien'], 0, '.', '.');
+                        foreach ($phone as $phone_detail) {
+                            if ($_GET['rom'] == $phone_detail['bo_nho_trong']) {
+                                echo number_format($phone_detail['gia_tien'], 0, '.', '.');
                                 break;
                             }
                         }
@@ -97,7 +97,7 @@ if (empty($_GET['color'])) {
             </div>
 
             <div class="flex flex-col pb-5">
-                <a class="bg-primary hover:opacity-90 py-4 rounded-xl text-white mt-10 font-medium text-lg text-center" href="index.php?controller=cart&action=addtocart&id_detail=<?php echo $product_detail['ma_chi_tiet_san_pham'] ?>&rom=<?php echo $_GET['rom'] ?>&color=<?php echo $_GET['color'] ?>">MUA NGAY</a>
+                <a class="bg-primary hover:opacity-90 py-4 rounded-xl text-white mt-10 font-medium text-lg text-center" href="index.php?controller=cart&action=addtocart&id_detail=<?php echo $phone_detail['ma_chi_tiet_san_pham'] ?>&rom=<?php echo $_GET['rom'] ?>&color=<?php echo $_GET['color'] ?>">MUA NGAY</a>
                 <div class="flex mt-3 justify-between items-center">
                     <button class="bg-secondary hover:opacity-90 text-white rounded-xl">
                         <div class="flex flex-col px-7 py-2">
@@ -155,52 +155,52 @@ if (empty($_GET['color'])) {
         </div>
         <table class="table-fixed text-left w-full mt-3">
             <tbody>
-                <?php foreach ($product as $product_detail) :
-                    if ($_GET['rom'] == $product_detail['bo_nho_trong']) : ?>
+                <?php foreach ($phone as $phone_detail) :
+                    if ($_GET['rom'] == $phone_detail['bo_nho_trong']) : ?>
                         <tr
                                 class="h-10 border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
                                 <td>Màn hình:</td>
-                                <td colspan="2"><?php echo $product_detail['man_hinh'] ?></td>
+                                <td colspan="2"><?php echo $phone_detail['man_hinh'] ?></td>
                             </tr>
                             <tr
                                 class="h-10 border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
                                 <td>Hệ điều hành:</td>
-                                <td colspan="2"><?php echo $product_detail['he_dieu_hanh'] ?></td>
+                                <td colspan="2"><?php echo $phone_detail['he_dieu_hanh'] ?></td>
                             </tr>
                             <tr
                                 class="h-10 border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
                                 <td>Camera sau:</td>
-                                <td colspan="2"><?php echo $product_detail['camera_sau'] ?></td>
+                                <td colspan="2"><?php echo $phone_detail['camera_sau'] ?></td>
                             </tr>
                             <tr
                                 class="h-10 border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
                                 <td>Camera trước:</td>
-                                <td colspan="2"><?php echo $product_detail['camera_truoc'] ?></td>
+                                <td colspan="2"><?php echo $phone_detail['camera_truoc'] ?></td>
                             </tr>
                             <tr
                                 class="h-10 border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
                                 <td>Chip:</td>
-                                <td colspan="2"><?php echo $product_detail['chip'] ?></td>
+                                <td colspan="2"><?php echo $phone_detail['chip'] ?></td>
                             </tr>
                             <tr
                                 class="h-10 border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
                                 <td>RAM:</td>
-                                <td colspan="2"><?php echo $product_detail['ram'] ?></td>
+                                <td colspan="2"><?php echo $phone_detail['ram'] ?></td>
                             </tr>
                             <tr
                                 class="h-10 border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
                                 <td>Bộ Nhớ Trong:</td>
-                                <td colspan="2"><?php echo $product_detail['bo_nho_trong'] ?></td>
+                                <td colspan="2"><?php echo $phone_detail['bo_nho_trong'] ?></td>
                             </tr>
                             <tr
                                 class="h-10 border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
                                 <td>SIM:</td>
-                                <td colspan="2"><?php echo $product_detail['sim'] ?></td>
+                                <td colspan="2"><?php echo $phone_detail['sim'] ?></td>
                             </tr>
                             <tr
                                 class="h-10 border-b dark:bg-gray-800 dark:border-gray-700 odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700">
                                 <td>Pin, Sạc:</td>
-                                <td colspan="2"><?php echo $product_detail['pin_sac'] ?></td>
+                                <td colspan="2"><?php echo $phone_detail['pin_sac'] ?></td>
                             </tr>
                     <?php endif ?>
                 <?php endforeach ?>

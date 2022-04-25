@@ -4,25 +4,19 @@ use App\Models\BaseModel;
 
 class PaginationModel extends BaseModel
 {
-    // public function paginate()
-    // {
+    public function countRows()
+    {
+        $sql = "SELECT * FROM san_pham";
+        $result = $this->_query($sql);
+        $total_rows = mysqli_num_rows($result);
+        return $total_rows;
+    }
 
-    //     if (!isset($_GET['page'])) {
-    //         $page_number = 1;
-    //     } else {
-    //         $page_number = $_GET['page'];
-    //     }
+    public function paginate($initial_page, $limit) {
+        $sql = "SELECT * FROM san_pham LIMIT $initial_page, $limit";
 
-    //     if (!empty($_GET['type'])) {
-    //         $productType = $_REQUEST['type'];
-    //     }
+        $result = $this->getByQuery($sql);
 
-    //     // so san pham tren 1 trang
-    //     $limit = 10;
-
-    //     // lay so trang 
-    //     $initial_page = ($page_number - 1) * $limit;
-
-    //     return $result;
-    // }
+        return $result;
+    }
 }

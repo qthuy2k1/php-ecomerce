@@ -16,7 +16,7 @@ class CartController extends BaseController
     public function index()
     {
 
-        $cart = $_SESSION['cart'];
+        $cart = $_SESSION['cart'] ?? [];
 
         return $this->view('Client.cart.index', [
             'cart' => $cart,

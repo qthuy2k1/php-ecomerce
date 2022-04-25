@@ -42,7 +42,7 @@
         <div class="max-w-7xl mx-auto h-full">
             <ul class="flex items-center justify-between h-full text-lg">
                 <li>
-                    <a href="index.php?controller=products&type=2" class="hover:text-primary flex">
+                    <a href="index.php?controller=phones&type=2&page=1" class="hover:text-primary flex">
                         <i class="material-icons mr-2">phone_iphone</i>
                         Điện Thoại
                     </a>
