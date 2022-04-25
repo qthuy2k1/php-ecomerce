@@ -5,8 +5,8 @@
             <div class="col-span-3 border-r-2">
                 <form id="signInForm" action="index.php?controller=signin&previous_controller=<?php echo $_GET['controller'] ?? 'home' ?>" method="POST">
                     <h1 class="text-center text-2xl text-primary font-medium mt-6">ĐĂNG NHẬP</h1>
-                    <input type="text" class="block placeholder:italic text-sm py-2 px-3 border-b-2 text-slate-500 focus:outline-none mt-7 w-[295px] ml-7 focus:border-indigo-600" placeholder="Tài Khoản" name="username" required>
-                    <input type="password" class="block placeholder:italic text-sm py-2 px-3 border-b-2 text-slate-500 focus:outline-none mt-5 w-[295px] ml-7 focus:border-indigo-600" placeholder="Mật Khẩu" name="password" required>
+                    <input type="text" class="block placeholder:italic text-sm py-2 px-3 border-b-2 text-slate-500 focus:outline-none mt-7 w-[295px] ml-7 focus:border-indigo-600" placeholder="Tài Khoản" name="username" min="3" max="20" required>
+                    <input type="password" class="block placeholder:italic text-sm py-2 px-3 border-b-2 text-slate-500 focus:outline-none mt-5 w-[295px] ml-7 focus:border-indigo-600" placeholder="Mật Khẩu" name="password" min="3" max="30" required>
 
                     <div class="flex items-center justify-between px-10 mt-7">
                         <div class="flex items-center">
@@ -42,12 +42,12 @@
             <div class="col-span-3 border-r-2">
                 <h1 class="text-center text-2xl text-primary font-medium mt-6">ĐĂNG KÍ</h1>
                 <form id="signUpForm" action="index.php?controller=signup&previous_controller=<?php echo $_GET['controller'] ?? 'home' ?>" method="POST">
-                    <input type="text" class="block placeholder:italic text-sm py-2 px-3 border-b-2 text-slate-500 focus:outline-none mt-7 w-[295px] ml-7 focus:border-indigo-600" placeholder="Tài Khoản" name="username" required>
-                    <input type="password" class="block placeholder:italic text-sm py-2 px-3 border-b-2 text-slate-500 focus:outline-none mt-5 w-[295px] ml-7 focus:border-indigo-600" placeholder="Mật Khẩu" name="password" required>
-                    <input type="text" class="block placeholder:italic text-sm py-2 px-3 border-b-2 text-slate-500 focus:outline-none mt-5 w-[295px] ml-7 focus:border-indigo-600" placeholder="Họ và tên" name="name" required>
-                    <input type="text" class="block placeholder:italic text-sm py-2 px-3 border-b-2 text-slate-500 focus:outline-none mt-5 w-[295px] ml-7 focus:border-indigo-600" placeholder="Số Điện Thoại" name="phone_number" required>
-                    <input type="email" class="block placeholder:italic text-sm py-2 px-3 border-b-2 text-slate-500 focus:outline-none mt-5 w-[295px] ml-7 focus:border-indigo-600" placeholder="Email" name="email" required>
-                    <input type="text" class="block placeholder:italic text-sm py-2 px-3 border-b-2 text-slate-500 focus:outline-none mt-5 w-[295px] ml-7 focus:border-indigo-600" placeholder="Địa chỉ của bạn" name="address" required>
+                    <input type="text" class="block placeholder:italic text-sm py-2 px-3 border-b-2 text-slate-500 focus:outline-none mt-7 w-[295px] ml-7 focus:border-indigo-600" placeholder="Tài Khoản" name="username" min="3" max="20" required>
+                    <input type="password" class="block placeholder:italic text-sm py-2 px-3 border-b-2 text-slate-500 focus:outline-none mt-5 w-[295px] ml-7 focus:border-indigo-600" placeholder="Mật Khẩu" name="password" min="3" max="20" required>
+                    <input type="text" class="block placeholder:italic text-sm py-2 px-3 border-b-2 text-slate-500 focus:outline-none mt-5 w-[295px] ml-7 focus:border-indigo-600" placeholder="Họ và tên" name="name" pattern="^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s\W|_]+$" required>
+                    <input type="text" class="block placeholder:italic text-sm py-2 px-3 border-b-2 text-slate-500 focus:outline-none mt-5 w-[295px] ml-7 focus:border-indigo-600" placeholder="Số Điện Thoại" name="phone_number" min="10" max="10" required>
+                    <input type="email" class="block placeholder:italic text-sm py-2 px-3 border-b-2 text-slate-500 focus:outline-none mt-5 w-[295px] ml-7 focus:border-indigo-600" placeholder="Email" name="email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+                    <input type="text" class="block placeholder:italic text-sm py-2 px-3 border-b-2 text-slate-500 focus:outline-none mt-5 w-[295px] ml-7 focus:border-indigo-600" placeholder="Địa chỉ của bạn" name="address" min="10" required>
                     <select class="block italic text-sm py-2 px-3 border-b-2 text-slate-500 focus:outline-none mt-5 w-[295px] ml-7 focus:border-indigo-600 rounded-none" name="gender" required>
                         <option value="nam">Nam</option>
                         <option value="nu">Nữ</option>

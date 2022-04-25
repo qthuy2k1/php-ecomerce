@@ -1,8 +1,12 @@
 <?php
 if (isset($_GET['signup']) && $_GET['signup'] == 'thanh-cong') {
-    echo "<div class='max-w-7xl mx-auto mt-4'><span class='text-primary'>Đăng ký tài khoản thành công, bạn có thể đăng nhập bây giờ!</span></div>";
+    echo "<div class='max-w-7xl mx-auto mt-4'><span class='text-secondary'>Đăng ký tài khoản thành công, bạn có thể đăng nhập bây giờ!</span></div>";
 } elseif (isset($_GET['signup'])) {
-    echo "<div class='max-w-7xl mx-auto mt-4'><span class='text-primary'>Trùng tài khoản rồi! Hãy đăng ký bằng tài khoản khác!!</span></div>";
+    echo "<div class='max-w-7xl mx-auto mt-4'><span class='text-primary'>Trùng tài khoản rồi, hãy đăng ký bằng tài khoản khác!!</span></div>";
+}
+
+if(isset($_GET['error_signin']) && $_GET['error_signin'] == 'sai-tai-khoan-mat-khau') {
+    echo "<div class='max-w-7xl mx-auto mt-4'><span class='text-primary'>Sai mật khẩu rồi, hãy đăng nhập lại!!</span></div>";
 }
 ?>
 

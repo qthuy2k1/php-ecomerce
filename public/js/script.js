@@ -11,6 +11,8 @@ jQuery(function () {
     $('#openSignInModal').click((e) => { 
         e.preventDefault();
         openModal();
+        $('#signIn').removeClass('hidden').addClass('grid');
+        $('#signUp').removeClass('grid').addClass('hidden');
     });
 
     $('#openSignUpModal').click((e) => { 

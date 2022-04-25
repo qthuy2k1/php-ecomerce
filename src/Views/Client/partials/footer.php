@@ -49,9 +49,11 @@
     </div>
 </div>
 
-
-
+<div class="fixed bg-white w-14 h-14 right-6 bottom-6 rounded-full shadow-lg z-50 hover:bg-primary">
+    <a href="#" class="block no-underline text-primary text-center font-semibold w-full h-full hover:text-white"><span class="block relative top-1/2 -translate-y-1/2">TOP</span></a>
 </div>
+</div>
+
 </div>
 <script src="./public/js/script.js"></script>
 </body>
