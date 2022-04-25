@@ -14,7 +14,7 @@ Website thương mại điện tử xây dựng theo mô hình MVC
 
 
 ## Cài đặt
-Sử dụng XAMPP, NGINX hoặc bất cứ chương trình tạo máy chủ Web nào để khởi động server.
+Sử dụng XAMPP, NGINX hoặc bất cứ chương trình tạo máy chủ Web nào để khởi động server.\
 Cài đặt và cập nhật các the dependencies and devDependencies cần thiết cho trang web
 
 ```sh
