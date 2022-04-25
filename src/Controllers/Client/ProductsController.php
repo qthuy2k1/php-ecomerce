@@ -2,16 +2,17 @@
 
 use App\Controllers\Client\BaseController;
 
-class ProductController extends BaseController
+class ProductsController extends BaseController
 {
 
     private $productModel;
     private $brandsModel;
+    private $paginationModel;
 
     public function __construct()
     {
-        $this->loadModel('ProductModel');
-        $this->productModel = new ProductModel;
+        $this->loadModel('ProductsModel');
+        $this->productModel = new ProductsModel;
     }
 
     /**
@@ -31,4 +32,11 @@ class ProductController extends BaseController
             'brands' => $brands,
         ]);
     }
+
+    // public function paginateProduct() {
+    //     $this->loadModel('PaginationModel');
+    //     $this->paginationModel = new PaginationModel;
+
+    //     $this->paginationModel->paginate();
+    // }
 }

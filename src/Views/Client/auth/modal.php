@@ -3,24 +3,26 @@
         <a id="closeSignInModal" href="#" class="block p-2 absolute right-0 top-0"><i class="material-icons">close</i></a>
         <div id="signIn" class="grid grid-cols-5">
             <div class="col-span-3 border-r-2">
-                <h1 class="text-center text-2xl text-primary font-medium mt-6">ĐĂNG NHẬP</h1>
-                <input type="text" class="block placeholder:italic text-sm py-2 px-3 border-b-2 text-slate-500 focus:outline-none mt-7 w-[295px] ml-7 focus:border-indigo-600" placeholder="Tài Khoản" required>
-                <input type="password" class="block placeholder:italic text-sm py-2 px-3 border-b-2 text-slate-500 focus:outline-none mt-5 w-[295px] ml-7 focus:border-indigo-600" placeholder="Mật Khẩu" required>
+                <form id="signInForm" action="index.php?controller=signin&previous_controller=<?php echo $_GET['controller'] ?? 'home' ?>" method="POST">
+                    <h1 class="text-center text-2xl text-primary font-medium mt-6">ĐĂNG NHẬP</h1>
+                    <input type="text" class="block placeholder:italic text-sm py-2 px-3 border-b-2 text-slate-500 focus:outline-none mt-7 w-[295px] ml-7 focus:border-indigo-600" placeholder="Tài Khoản" name="username" required>
+                    <input type="password" class="block placeholder:italic text-sm py-2 px-3 border-b-2 text-slate-500 focus:outline-none mt-5 w-[295px] ml-7 focus:border-indigo-600" placeholder="Mật Khẩu" name="password" required>
 
-                <div class="flex items-center justify-between px-10 mt-7">
-                    <div class="flex items-center">
-                        <input type="checkbox" name="remember" id="remember" class="cursor-pointer">
-                        <label for="remember" class="ml-2 text-sm cursor-pointer">Nhớ Tài Khoản</label>
+                    <div class="flex items-center justify-between px-10 mt-7">
+                        <div class="flex items-center">
+                            <input type="checkbox" name="remember" id="remember" class="cursor-pointer">
+                            <label for="remember" class="ml-2 text-sm cursor-pointer">Nhớ Tài Khoản</label>
+                        </div>
+                        <a href="#" class="text-primary text-sm hover:opacity-80">Quên Mật Khẩu?</a>
                     </div>
-                    <a href="#" class="text-primary text-sm hover:opacity-80">Quên Mật Khẩu?</a>
-                </div>
-                <div class="flex items-center justify-between px-10 mt-5 pb-6 text-sm">
-                    <div class="flex flex-col">
-                        <span>Chưa có tài khoản?</span>
-                        <a id="toSignUp" href="#" class="text-primary hover:opacity-80">Đăng Ký Ngay</a>
+                    <div class="flex items-center justify-between px-10 mt-5 pb-6 text-sm">
+                        <div class="flex flex-col">
+                            <span>Chưa có tài khoản?</span>
+                            <a id="toSignUp" href="#" class="text-primary hover:opacity-80">Đăng Ký Ngay</a>
+                        </div>
+                        <button form="signInForm" type="submit" value="submit" id="signInBtn" class="bg-secondary hover:bg-primary transition-all rounded-[20px] w-[120px] h-[35px] text-white">ĐĂNG NHẬP</button>
                     </div>
-                    <button id="signInBtn" class="bg-secondary hover:bg-primary transition-all rounded-[20px] w-[120px] h-[35px] text-white">ĐĂNG NHẬP</button>
-                </div>
+                </form>
             </div>
             <div class="col-span-2 flex flex-col items-center justify-center px-2">
                 <h1 class="text-center">Hoặc đăng nhập bằng:</h1>
@@ -39,18 +41,26 @@
         <div id="signUp" class="hidden grid-cols-5">
             <div class="col-span-3 border-r-2">
                 <h1 class="text-center text-2xl text-primary font-medium mt-6">ĐĂNG KÍ</h1>
-                <input type="text" class="block placeholder:italic text-sm py-2 px-3 border-b-2 text-slate-500 focus:outline-none mt-7 w-[295px] ml-7 focus:border-indigo-600" placeholder="Tài Khoản" required>
-                <input type="password" class="block placeholder:italic text-sm py-2 px-3 border-b-2 text-slate-500 focus:outline-none mt-5 w-[295px] ml-7 focus:border-indigo-600" placeholder="Mật Khẩu" required>
-                <input type="text" class="block placeholder:italic text-sm py-2 px-3 border-b-2 text-slate-500 focus:outline-none mt-5 w-[295px] ml-7 focus:border-indigo-600" placeholder="Số Điện Thoại" required>
-                <input type="email" class="block placeholder:italic text-sm py-2 px-3 border-b-2 text-slate-500 focus:outline-none mt-5 w-[295px] ml-7 focus:border-indigo-600" placeholder="Email" required>
+                <form id="signUpForm" action="index.php?controller=signup&previous_controller=<?php echo $_GET['controller'] ?? 'home' ?>" method="POST">
+                    <input type="text" class="block placeholder:italic text-sm py-2 px-3 border-b-2 text-slate-500 focus:outline-none mt-7 w-[295px] ml-7 focus:border-indigo-600" placeholder="Tài Khoản" name="username" required>
+                    <input type="password" class="block placeholder:italic text-sm py-2 px-3 border-b-2 text-slate-500 focus:outline-none mt-5 w-[295px] ml-7 focus:border-indigo-600" placeholder="Mật Khẩu" name="password" required>
+                    <input type="text" class="block placeholder:italic text-sm py-2 px-3 border-b-2 text-slate-500 focus:outline-none mt-5 w-[295px] ml-7 focus:border-indigo-600" placeholder="Họ và tên" name="name" required>
+                    <input type="text" class="block placeholder:italic text-sm py-2 px-3 border-b-2 text-slate-500 focus:outline-none mt-5 w-[295px] ml-7 focus:border-indigo-600" placeholder="Số Điện Thoại" name="phone_number" required>
+                    <input type="email" class="block placeholder:italic text-sm py-2 px-3 border-b-2 text-slate-500 focus:outline-none mt-5 w-[295px] ml-7 focus:border-indigo-600" placeholder="Email" name="email" required>
+                    <input type="text" class="block placeholder:italic text-sm py-2 px-3 border-b-2 text-slate-500 focus:outline-none mt-5 w-[295px] ml-7 focus:border-indigo-600" placeholder="Địa chỉ của bạn" name="address" required>
+                    <select class="block italic text-sm py-2 px-3 border-b-2 text-slate-500 focus:outline-none mt-5 w-[295px] ml-7 focus:border-indigo-600 rounded-none" name="gender" required>
+                        <option value="nam">Nam</option>
+                        <option value="nu">Nữ</option>
+                    </select>
 
-                <div class="flex items-center justify-between px-10 mt-7 pb-6 text-sm">
-                    <div class="flex flex-col">
-                        <span>Đã có tài khoản?</span>
-                        <a id="toSignIn" href="#" class="text-primary hover:opacity-80">Đăng Nhập Ngay</a>
+                    <div class="flex items-center justify-between px-10 mt-7 pb-6 text-sm">
+                        <div class="flex flex-col">
+                            <span>Đã có tài khoản?</span>
+                            <a id="toSignIn" href="#" class="text-primary hover:opacity-80">Đăng Nhập Ngay</a>
+                        </div>
+                        <button form="signUpForm" id="signUpBtn" class="bg-secondary hover:bg-primary transition-all rounded-[20px] w-[120px] h-[35px] text-white">ĐĂNG KÍ</button>
                     </div>
-                    <button id="signUpBtn" class="bg-secondary hover:bg-primary transition-all rounded-[20px] w-[120px] h-[35px] text-white">ĐĂNG KÍ</button>
-                </div>
+                </form>
             </div>
             <div class="col-span-2 flex flex-col items-center justify-center px-2">
                 <h1 class="text-center">Hoặc đăng nhập bằng:</h1>

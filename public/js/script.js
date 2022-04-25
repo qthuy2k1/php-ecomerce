@@ -12,6 +12,12 @@ jQuery(function () {
         e.preventDefault();
         openModal();
     });
+    $('#openSignUpModal').click((e) => { 
+        e.preventDefault();
+        openModal();
+        $('#signUp').removeClass('hidden').addClass('grid');
+        $('#signIn').removeClass('grid').addClass('hidden');
+    });
 
     $('#closeSignInModal').click((e) => { 
         e.preventDefault();
@@ -44,14 +50,14 @@ jQuery(function () {
 
 
     // handle submit form in sign in and sign up modal
-    $('#signInBtn').click((e) => {
-        e.preventDefault();
-        e.submit();
-    })
-    $('#signUpBtn').click((e) => {
-        e.preventDefault();
-        e.submit();
-    })
+    // $('#signInBtn').click((e) => {
+    //     e.preventDefault();
+    //     e.submit();
+    // })
+    // $('#signUpBtn').click((e) => {
+    //     e.preventDefault();
+    //     e.submit();
+    // })
 
 
     // change background and border button on click
@@ -72,7 +78,7 @@ jQuery(function () {
 
 
     let prices = []
-    if($('#cartTable')) {
+    if($('#cartTable').length) {
         document.querySelectorAll('#cartTable tbody tr .total').forEach((element) => {
             prices.push(parseInt(element.textContent.trim().replaceAll('.', '').replace('đ', '')))
         })

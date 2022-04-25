@@ -31,6 +31,7 @@ class CartController extends BaseController
         $result = $this->cartModel->getAll($id_detail);
 
         if (empty($_SESSION['cart'][$id_detail])) {
+            $_SESSION['cart'][$id_detail]['cart_id'] = 1;
             $_SESSION['cart'][$id_detail]['ma_san_pham'] = $result[0]['ma_san_pham'];
             $_SESSION['cart'][$id_detail]['ma_chi_tiet_san_pham'] = $result[0]['ma_chi_tiet_san_pham'];
             $_SESSION['cart'][$id_detail]['ten_san_pham'] = $result[0]['ten_san_pham'];
@@ -40,7 +41,7 @@ class CartController extends BaseController
             $_SESSION['cart'][$id_detail]['bo_nho_trong'] = $result[0]['bo_nho_trong'];
             $_SESSION['cart'][$id_detail]['so_luong'] = 1;
         } else {
-            $_SESSION['cart'][$id_detail]['so_luong']++;
+                $_SESSION['cart'][$id_detail]['so_luong']++;
         }
 
         // unset($_SESSION['cart']);

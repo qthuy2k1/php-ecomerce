@@ -48,7 +48,7 @@
                 <h2 class="text-truncate font-semibold pl-5 pt-4 flex-1"><?php echo $product['ten_san_pham'] . " " . $product['bo_nho_trong'] ?></h2>
                 <div class="grid grid-cols-2 px-5 pt-3 flex-1">
                     <span class="text-primary font-medium"><?php echo number_format(str_replace("", "", (int)str_replace(".", "", $product['gia_tien'])), 0, '.', '.') ?>đ</span>
-                    <span class="text-right text-sm">Hoặc trả trước</span>
+                    <span class="text-right text-sm mt-[2px]">Hoặc trả trước</span>
                     <span class="col-end-3 text-right text-sm text-primary">
                         <?php echo number_format(str_replace("", "", (int)str_replace(".", "", $product['gia_tien']) * 0.33), 0, '.', '.') ?>đ
                     </span>

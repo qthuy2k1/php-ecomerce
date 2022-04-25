@@ -12,16 +12,28 @@
                 </span>
                 <input class="w-[800px] h-[50px] rounded-[30px] placeholder:italic placeholder:text-slate-400 placeholder:text-[16px] block bg-white border border-slate-400 py-2 pl-14 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 lg:text-lg sm:text-sm" placeholder="Tìm kiếm sản phẩm..." type="text" name="search" />
             </label>
-            <div class="relative flex">
+            <div class="relative flex items-center">
                 <a href="index.php?controller=cart"><i class="material-icons text-4xl mr-10">shopping_cart</i></a>
-                <div class="group">
-                    <i class="material-icons text-4xl cursor-pointer">account_circle</i>
-                    <ul class="bg-white group-hover:block hidden absolute border p-2 right-0 w-[160px] rounded-md shadow-md animate-dropDown origin-top">
-                        <li><a id="openSignInModal" href="#" class="hover:text-primary block px-5 pt-2">Đăng Nhập</a></li>
-                        <li><a href="#" class="hover:text-primary block px-5 py-2 border-b-2">Đăng Ký</a></li>
-                        <li><a href="#" class="hover:text-primary block px-5 py-2">Trợ Giúp</a></li>
-                    </ul>
-                </div>
+                <?php
+                if (isset($_SESSION['username'])) { ?>
+                    <div class="group">
+                        <span class='font-semibold'>Xin chào, <span class='text-primary'><?php echo $_SESSION['username'] ?></span></span>
+                        <ul class="bg-white group-hover:block hidden absolute border p-2 right-0 w-[180px] rounded-md shadow-md animate-dropDown origin-top">
+                            <li><a id="" href="#" class="hover:text-primary block px-3 pt-2">Tài Khoản Của Tôi</a></li>
+                            <li><a href="#" class="hover:text-primary block px-3 py-2 border-b-2">Trợ Giúp</a></li>
+                            <li><a href="index.php?controller=signout&previous_controller=<?php echo $_GET['controller'] ?? 'home' ?>&id=<?php echo $_GET['id'] ?? '' ?>&id_detail=<?php echo $_GET['id_detail'] ?? '' ?>&type=<?php echo $_GET['type'] ?? '' ?>" class="hover:text-primary block px-3 py-2">Đăng Xuất</a></li>
+                        </ul>
+                    </div>
+                <?php } else { ?>
+                    <div class="group">
+                        <i class='material-icons text-4xl cursor-pointer'>account_circle</i>
+                        <ul class="bg-white group-hover:block hidden absolute border p-2 right-0 w-[160px] rounded-md shadow-md animate-dropDown origin-top">
+                            <li><a id="openSignInModal" href="#" class="hover:text-primary block px-5 pt-2">Đăng Nhập</a></li>
+                            <li><a id="openSignUpModal" href="#" class="hover:text-primary block px-5 py-2 border-b-2">Đăng Ký</a></li>
+                            <li><a href="#" class="hover:text-primary block px-5 py-2">Trợ Giúp</a></li>
+                        </ul>
+                    </div>
+                <?php } ?>
             </div>
         </div>
     </div>
@@ -30,13 +42,13 @@
         <div class="max-w-7xl mx-auto h-full">
             <ul class="flex items-center justify-between h-full text-lg">
                 <li>
-                    <a href="index.php?controller=product&type=2" class="hover:text-primary flex">
+                    <a href="index.php?controller=products&type=2" class="hover:text-primary flex">
                         <i class="material-icons mr-2">phone_iphone</i>
                         Điện Thoại
                     </a>
                 </li>
                 <li>
-                    <a href="index.php?controller=product&type=1" class="hover:text-primary flex">
+                    <a href="#" class="hover:text-primary flex">
                         <i class="material-icons mr-2">laptop</i>
                         Laptop
                     </a>
