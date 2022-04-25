@@ -3,7 +3,6 @@
     "tailwindcss": "^3.0.23"
   },
   "dependencies": {
-    "fast-glob": "^3.2.11",
     "tailwind.config.js": "^1.0.6"
   }
 }

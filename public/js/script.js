@@ -1,6 +1,6 @@
 jQuery(function () {
 
-    // Modal
+    // Handle modal event
     function openModal() {
         $('#modal').removeClass('hidden').addClass('flex');
     }
@@ -12,6 +12,7 @@ jQuery(function () {
         e.preventDefault();
         openModal();
     });
+
     $('#openSignUpModal').click((e) => { 
         e.preventDefault();
         openModal();
@@ -31,13 +32,13 @@ jQuery(function () {
     });
 
 
-    // prevent exit modal on click
+    // prevent close modal on click
     $('#modalContainer').click((e) => {
         e.stopPropagation();
     });
 
 
-    // switch between sign in and sign up
+    // switch between sign in and sign up modal
     $('#toSignIn').click(() => {
         $('#signIn').removeClass('hidden').addClass('grid');
         $('#signUp').removeClass('grid').addClass('hidden');
@@ -47,17 +48,6 @@ jQuery(function () {
         $('#signUp').removeClass('hidden').addClass('grid');
         $('#signIn').removeClass('grid').addClass('hidden');
     });
-
-
-    // handle submit form in sign in and sign up modal
-    // $('#signInBtn').click((e) => {
-    //     e.preventDefault();
-    //     e.submit();
-    // })
-    // $('#signUpBtn').click((e) => {
-    //     e.preventDefault();
-    //     e.submit();
-    // })
 
 
     // change background and border button on click
@@ -77,6 +67,7 @@ jQuery(function () {
     })
 
 
+    // handle total prices in cart
     let prices = []
     if($('#cartTable').length) {
         document.querySelectorAll('#cartTable tbody tr .total').forEach((element) => {
@@ -87,6 +78,7 @@ jQuery(function () {
             accumulator + currentValue
         , 0)
         
+        // Vietnamese currency formating
         document.querySelector('#totalAllPrice').textContent = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(totalAllPrice)
     }
 })

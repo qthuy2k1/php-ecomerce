@@ -10,10 +10,6 @@ $actionName = $_REQUEST['action'] ?? 'index';
 
 require './src/Views/Client/partials/top.php';
 
-
-// echo $controllerName;
-// echo $actionName;
-
 require './src/Controllers/Client/' . $controllerName . '.php';
 
 $controllerObject = new $controllerName;
