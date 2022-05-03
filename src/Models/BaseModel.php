@@ -15,13 +15,6 @@ class BaseModel extends Database {
         return mysqli_query($this->conn, $sql);
     }
 
-    // Lay ra 1 ban ghi trong bang
-    public function find($table, $id) {
-        $sql = "SELECT * FROM ${table} WHERE ma_san_pham = ${id} LIMIT 1";
-        $query = $this->_query($sql);
-        return mysqli_fetch_assoc($query);
-    }
-
     public function getByQuery($sql) {
         $query = $this->_query($sql);
         $data = [];

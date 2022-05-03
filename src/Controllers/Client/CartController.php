@@ -2,8 +2,6 @@
 
 use App\Controllers\Client\BaseController;
 
-use function PHPSTORM_META\type;
-
 class CartController extends BaseController
 {
 
