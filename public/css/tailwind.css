@@ -16,4 +16,7 @@
   .pagination-link.selected {
     @apply bg-primary text-white;
   }
+  .brand.selected {
+    @apply border border-primary;
+  }
 }

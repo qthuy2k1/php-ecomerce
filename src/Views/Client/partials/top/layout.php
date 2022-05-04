@@ -21,5 +21,5 @@ ob_start();
     <link rel="stylesheet" href="./public/build/app.css">
 </head>
 
-<body class="bg-body relative">
+<body class="bg-body relative scroll-smooth">
     <div class="container relative transition-all">

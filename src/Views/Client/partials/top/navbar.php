@@ -13,7 +13,16 @@
                 <input class="w-[800px] h-[50px] rounded-[30px] placeholder:italic placeholder:text-slate-400 placeholder:text-[16px] block bg-white border border-slate-400 py-2 pl-14 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 lg:text-lg sm:text-sm" placeholder="Tìm kiếm sản phẩm..." type="text" name="search" />
             </label>
             <div class="relative flex items-center">
-                <a href="index.php?controller=cart"><i class="material-icons text-4xl mr-10">shopping_cart</i></a>
+                <a href="index.php?controller=cart" class="relative">
+                    <i class="material-icons text-4xl mr-10">shopping_cart</i>
+                    <?php
+                        if(isset($_SESSION['cart'])) { ?>
+                            <span class="absolute left-6 -top-1 bg-primary text-white rounded-full w-5 h-5 text-center text-sm"><?=count($_SESSION['cart'])?></span>
+                        <?php }
+                        else { ?>
+                            <span class="absolute left-6 -top-1 bg-primary text-white rounded-full w-5 h-5 text-center text-sm">0</span>
+                        <?php } ?>
+                </a>    
                 <?php
                 if (isset($_SESSION['username'])) { ?>
                     <div class="group">

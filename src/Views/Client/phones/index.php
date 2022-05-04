@@ -1,9 +1,27 @@
+<?php 
+
+// Xoa param color tren url
+$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+$parsed = parse_url($actual_link);
+$query = $parsed['query'];
+
+parse_str($query, $params);
+
+unset($params['ma_hang']);
+$string = http_build_query($params);
+?>
 <div class="max-w-7xl mx-auto mt-8 bg-white rounded-t-lg">
     <h1 class="font-semibold pl-4 pt-6 text-xl">Điện Thoại</h1>
 
     <div class="flex items-center justify-start px-10 mt-7">
         <?php foreach ($brands as $brand) : ?>
-            <a href="#" class="flex items-center justify-center border-0 hover:border hover:border-primary w-[125px] h-[32px] mr-4">
+            <a href="index.php?<?=$string?>&ma_hang=<?=$brand['ma_hang']?>" class="brand flex items-center justify-center border-0 hover:border hover:border-primary w-[125px] h-[32px] mr-4 
+            <?php
+            if(isset($_GET['ma_hang']) && $brand['ma_hang'] == $_GET['ma_hang']) {
+                echo "selected";
+            }
+            ?>">
                 <img src="./public/<?php echo $brand['anh_logo'] ?>" alt="">
             </a>
         <?php endforeach ?>
