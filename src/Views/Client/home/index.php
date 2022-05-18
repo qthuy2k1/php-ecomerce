@@ -6,7 +6,7 @@ if (isset($_GET['signup']) && $_GET['signup'] == 'thanh-cong') {
 }
 
 if(isset($_GET['error_signin']) && $_GET['error_signin'] == 'sai-tai-khoan-mat-khau') {
-    echo "<div class='max-w-7xl mx-auto mt-4'><span class='text-primary'>Sai mật khẩu rồi, hãy đăng nhập lại!!</span></div>";
+    echo "<div class='max-w-7xl mx-auto mt-4'><span class='text-primary'>Sai mật khẩu rồi, vui lòng đăng nhập lại!!</span></div>";
 }
 ?>
 

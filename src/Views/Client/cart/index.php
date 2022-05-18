@@ -68,7 +68,7 @@ $string = http_build_query($url);
             </tr>
             <tr>
                 <td colspan="7" class="text-right px-7 pb-7">
-                    <a href="#" class="bg-primary hover:bg-secondary text-white p-4 rounded-lg">Xác Nhận Đơn Hàng</a>
+                    <a id="cartConfirm" href="#" class="bg-primary hover:bg-secondary text-white p-4 rounded-lg">Xác Nhận Đơn Hàng</a>
                 </td>
             </tr>
         </tfoot>

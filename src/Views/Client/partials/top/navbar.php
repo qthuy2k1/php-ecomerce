@@ -26,7 +26,7 @@
                 <?php
                 if (isset($_SESSION['username'])) { ?>
                     <div class="group">
-                        <span class='font-semibold'>Xin chào, <span class='text-primary'><?php echo $_SESSION['username'] ?></span></span>
+                        <span class='font-semibold'>Xin chào, <span class='text-primary'><?php echo $_SESSION['name'] ?></span></span>
                         <ul class="bg-white group-hover:block hidden absolute border p-2 right-0 w-[180px] rounded-md shadow-md animate-dropDown origin-top">
                             <li><a id="" href="#" class="hover:text-primary block px-3 pt-2">Tài Khoản Của Tôi</a></li>
                             <li><a href="#" class="hover:text-primary block px-3 py-2 border-b-2">Trợ Giúp</a></li>
